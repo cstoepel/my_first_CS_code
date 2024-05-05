@@ -9,10 +9,12 @@ namespace Screen_2
 	internal class Circle
 	{
 		public Circle() { }
-
-		public int X { get; set; } = 1;
-		public int Y { get; set; } = 1;
-		public int R { get; set; } = 1;
+		public int _X;
+		public int _Y;
+		public int _R;
+		public int X { get { return _X; } set { _X = value < 0 ? 0 : value > Screen.Width - 1 ? Screen.Width : value; } }
+		public int Y { get { return _Y; } set { _Y = value < 0 ? 0 : value > Screen.Height - 1 ? Screen.Height : value; } }
+		public int R { get { return _R; } set { _R = value < 1 ? 1 : value > 100 ? 100 : value; } }
 		public ConsoleScreen Screen { get; set; }
 		public void Draw() {  Draw(X, Y, R); }
 		public void Draw(int xc, int yc, int r)

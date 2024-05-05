@@ -52,6 +52,7 @@ namespace Screen_2
 				Console.BackgroundColor = BackGround;
 			}
 		}
+		public void Clear() { Console.Clear(); }
 
 
 	}
