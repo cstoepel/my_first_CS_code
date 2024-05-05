@@ -26,6 +26,11 @@
 			// Call by Ref
 			mca.MakeNewClassAObj("OBJEKT2A", ref obj2);
 			obj2.PrintFields();
+
+			Console.Write($"obj2.Add(2,3) = {obj2.Add(2, 3)}\n");
+			Console.Write($"obj2.Add() = {obj2.Add()}\n");
+			Console.Write($"obj2.Sum() = {obj2.Sum()}\n");
+
 		}
 	}
 }
