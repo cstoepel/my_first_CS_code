@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Screen_1", "Console_1\Scree
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Screen_2", "Screen_2\Screen_2.csproj", "{233AEE56-6F14-4F50-B460-F6F8B7C3661C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prim", "Prim\Prim.csproj", "{543F903C-BE1D-460B-B22D-33A9EA9A9A05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prim", "Prim\Prim.csproj", "{543F903C-BE1D-460B-B22D-33A9EA9A9A05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessBoard", "ChessBoard\ChessBoard.csproj", "{2E0AD71C-DCDF-47E2-A87C-4EBBB855EFD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANSI_Seq", "ANSI_Seq\ANSI_Seq.csproj", "{BF6EBAE0-FBF3-4C6E-A8E5-DDED419AA9B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{543F903C-BE1D-460B-B22D-33A9EA9A9A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{543F903C-BE1D-460B-B22D-33A9EA9A9A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{543F903C-BE1D-460B-B22D-33A9EA9A9A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E0AD71C-DCDF-47E2-A87C-4EBBB855EFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0AD71C-DCDF-47E2-A87C-4EBBB855EFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0AD71C-DCDF-47E2-A87C-4EBBB855EFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0AD71C-DCDF-47E2-A87C-4EBBB855EFD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6EBAE0-FBF3-4C6E-A8E5-DDED419AA9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6EBAE0-FBF3-4C6E-A8E5-DDED419AA9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6EBAE0-FBF3-4C6E-A8E5-DDED419AA9B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6EBAE0-FBF3-4C6E-A8E5-DDED419AA9B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
