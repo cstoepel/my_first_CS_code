@@ -4,27 +4,23 @@
 	{
 		static void Main(string[] args)
 		{
-			//Console.Write("\x1b[36mTEST\x1b[0m");
+			// Wikipedia ANSI Code Sequenzen
+			// https://en.wikipedia.org/wiki/ANSI_escape_code
 
-			const string CSI = "\x1b[";
+			const string CSI        = "\x1b[";
+			const string SeqEnd     = "0m";
+			const string ResetColor = CSI + "0m";
+			const string RGBColor   = CSI + "38;2;";
 
-			for (int i = 0; i < 256; i++)
+			for (int i = 0; i < 256; i += 4)
 			{
-				Console.Write(CSI);
-				Console.Write("38;2;" + i.ToString() + ";0;0m");
-				Console.Write("█");
+				for (int j = 0; j < 256; j += 4)
+				{
+					Console.Write(RGBColor + i.ToString() + ";" + j.ToString() + ";" + SeqEnd);
+					Console.Write("█");
+				}
+				Console.Write(ResetColor + "\n");
 			}
-
-
-
-
-
 		}
-	}
-
-	internal class ANSI_seq
-	{
-		ANSI_seq() { }
-		public byte r, g, b;
 	}
 }
