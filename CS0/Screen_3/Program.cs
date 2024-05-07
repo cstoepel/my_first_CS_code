@@ -32,20 +32,22 @@ do
 {
 	key = Console.ReadKey(true);
 	//Console.Write($"index={index}");
-	if      (key.Key == ConsoleKey.D0) { index = 0; }
-	else if (key.Key == ConsoleKey.D1) { index = 1; }
-	else if (key.Key == ConsoleKey.D2) { index = 2; }
-	else if (key.Key == ConsoleKey.D3) { index = 3; }
-	else if (key.Key == ConsoleKey.D4) { index = 4; }
-	else if (key.Key == ConsoleKey.D5) { index = 5; }
-	else if (key.Key == ConsoleKey.LeftArrow)  { Zeichnung.GetShapeByIndex(index).Move(-1,  0); }
-	else if (key.Key == ConsoleKey.RightArrow) { Zeichnung.GetShapeByIndex(index).Move( 1,  0); }
-	else if (key.Key == ConsoleKey.UpArrow)    { Zeichnung.GetShapeByIndex(index).Move( 0, -1); }
-	else if (key.Key == ConsoleKey.DownArrow)  { Zeichnung.GetShapeByIndex(index).Move( 0,  1); }
-	else continue;
+	switch (key.Key)
+	{
+		case ConsoleKey.D0: index = 0; break;
+		case ConsoleKey.D1: index = 1; break;
+		case ConsoleKey.D2: index = 2; break;
+		case ConsoleKey.D3: index = 3; break;
+		case ConsoleKey.D4: index = 4; break;
+		case ConsoleKey.D5: index = 5; break;
+		case ConsoleKey.LeftArrow:   Zeichnung.GetShapeByIndex(index).Move(-1,  0); break;
+		case ConsoleKey.RightArrow:	 Zeichnung.GetShapeByIndex(index).Move( 1,  0); break;
+		case ConsoleKey.UpArrow:	 Zeichnung.GetShapeByIndex(index).Move( 0, -1); break;
+		case ConsoleKey.DownArrow:	 Zeichnung.GetShapeByIndex(index).Move( 0,  1); break;
+		//case ConsoleKey.Subtract):
+		//case ConsoleKey.Add):
+		default: continue;
+	}
 	screen.Clear();
 	Zeichnung.DrawAll();
-	//else if (key.Key == ConsoleKey.Subtract)  { Zeichnung.GetShapeByIndex(index).Move(1,0);  }
-	//else if (key.Key == ConsoleKey.Add)       { Zeichnung.GetShapeByIndex(index).Move(1,0); }
-
 } while (key.Key != ConsoleKey.Escape);
