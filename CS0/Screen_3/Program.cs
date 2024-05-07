@@ -8,7 +8,7 @@ ConsoleScreen screen = new ConsoleScreen(maxX, maxY);
 
 Shapes Zeichnung = new Shapes();
 // Screen zuerst in Initialisierungsliste, weil gebraucht von get und set
-// Ist das gut so eine Reihenfolgenbeschränkung zu haben?
+// Ist das gut so eine Reihenfolgenbeschränkung zu haben? 
 Zeichnung.Add(new Rectangle() { Screen = screen, color = ConsoleColor.Gray, X1 = 10, Y1 = 60, X2 = 60, Y2 = 98 });
 Zeichnung.Add(new Rectangle() { Screen = screen, color = ConsoleColor.Gray, X1 = 20, Y1 = 70, X2 = 30, Y2 = 80 });
 Zeichnung.Add(new Rectangle() { Screen = screen, color = ConsoleColor.Gray, X1 = 35, Y1 = 70, X2 = 50, Y2 = 98 });
