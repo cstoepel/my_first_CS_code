@@ -1,0 +1,76 @@
+d2d4
+g8f6
+c2c4
+e7e6
+g1f3
+d7d5
+b1c3
+f8b4
+e2e3
+e8g8
+h8f8
+f1d3
+c7c5
+e1g1
+h1f1
+b8c6
+a2a3
+b4a5
+c3e2
+d5c4
+d3c4
+a5b6
+d4c5
+d8d1
+f1d1
+b6c5
+b2b4
+c5e7
+c1b2
+c8d7
+a1c1
+f8d8
+e4d4
+c6d4
+e3d4
+d7a4
+--------------
+18. Lb3 Lxb3 
+19. Sxb3 Txd1+ 
+20. Txd1 Tc8 
+21. Kf1 Kf8 
+22. Ke2 Se4 
+23. Tc1 Txc1 
+24. Lxc1 f6 
+25. Sa5 Sd6 
+26. Kd3 Ld8 
+27. Sc4 Lc7 
+28. Sxd6 Lxd6 
+29. b5 Lxh2? 
+30. g3 h5 
+31. Ke2 h4 
+32. Kf3 Ke7 
+33. Kg2 hxg3 
+34. fxg3 Lxg3 
+35. Kxg3 Kd6 
+36. a4 Kd5 
+37. La3 Ke4 
+38. Lc5 a6 
+39. b6 f5 
+40. Kh4 f4 
+41. exf4 Kxf4 
+42. Kh5 Kf5 
+43. Le3 Ke4 
+44. Lf2 Kf5 
+45. Lh4 e5 
+46. Lg5 e4 
+47. Le3 Kf6 
+48. Kg4 Ke5 
+49. Kg5 Kd5 
+50. Kf5 a5 
+51. Lf2 g5 
+52. Kxg5 Kc4 
+53. Kf5 Kb4 
+54. Kxe4 Kxa4 
+55. Kd5 Kb5 
+56. Kd6 1:0

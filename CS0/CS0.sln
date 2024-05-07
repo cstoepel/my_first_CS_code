@@ -15,11 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Screen_2", "Screen_2\Screen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prim", "Prim\Prim.csproj", "{543F903C-BE1D-460B-B22D-33A9EA9A9A05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessBoard", "ChessBoard\ChessBoard.csproj", "{2E0AD71C-DCDF-47E2-A87C-4EBBB855EFD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessBoard", "ChessBoard\ChessBoard.csproj", "{2E0AD71C-DCDF-47E2-A87C-4EBBB855EFD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANSI_Seq", "ANSI_Seq\ANSI_Seq.csproj", "{BF6EBAE0-FBF3-4C6E-A8E5-DDED419AA9B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ANSI_Seq", "ANSI_Seq\ANSI_Seq.csproj", "{BF6EBAE0-FBF3-4C6E-A8E5-DDED419AA9B0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Screen_3", "Screen_3\Screen_3.csproj", "{7B79B25D-84CD-47DC-9199-C6A30B0B0B1D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessBoard_2", "ChessBoard_2\ChessBoard_2.csproj", "{515F667D-C65B-4FC3-B103-DA2244EF2391}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{7B79B25D-84CD-47DC-9199-C6A30B0B0B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B79B25D-84CD-47DC-9199-C6A30B0B0B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B79B25D-84CD-47DC-9199-C6A30B0B0B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{515F667D-C65B-4FC3-B103-DA2244EF2391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{515F667D-C65B-4FC3-B103-DA2244EF2391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{515F667D-C65B-4FC3-B103-DA2244EF2391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{515F667D-C65B-4FC3-B103-DA2244EF2391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
