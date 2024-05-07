@@ -36,16 +36,32 @@ namespace Screen_3
 		internal override void Draw()
 		{
 			Screen.ForeGround = color;
-			int m = 2 * (Y2 - Y1);
-			int err = m - (X2 - X1);
-			for (int x = X1, y = Y1; x <= X2; ++x)
+			DrawLine(X1, Y1,X2,Y2);
+		}
+		internal void DrawLine(int x0, int y0, int x1, int y1)
+		{
+			int dx = Math.Abs(x1 - x0);
+			int sx = x0 < x1 ? 1 : -1;
+			int dy = -Math.Abs(y1 - y0);
+			int sy = y0 < y1 ? 1 : -1;
+			int err = dx - dy;
+
+			while (true)
 			{
-				Pixel.SetPixel(Screen, x, y);
-				err += m;
-				if (err >= 0)
+				Pixel.SetPixel(Screen, x0, y0);
+				if (x0 == x1 && y0 == y1) break;
+				int e2 = 2 * err;
+				if (e2 >= dy)
 				{
-					++y;
-					err = err - 2 * (X2 - X1);
+					if ( x0 == x1) break;
+					err = err + dy;
+					x0 = x0 + sx;
+				}
+				if (e2 <= dx)
+				{
+					if (y0 == y1) break;
+					err = err + dx;
+					y0 = y0 + sy;
 				}
 			}
 		}

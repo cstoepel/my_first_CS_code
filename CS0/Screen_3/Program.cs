@@ -6,23 +6,22 @@ int maxX = 100, maxY = 100;
 
 ConsoleScreen screen = new ConsoleScreen(maxX, maxY);
 
+Shapes Zeichnung = new Shapes();
 // Screen zuerst in Initialisierungsliste, weil gebraucht von get und set
 // Ist das gut so eine Reihenfolgenbeschränkung zu haben?
-Circle c1 = new Circle() { Screen = screen, color = ConsoleColor.Green,  X = 30, Y = 20, R = 9 };
-Circle c2 = new Circle() { Screen = screen, color = ConsoleColor.Red, X = 60, Y = 50, R = 15 };
-Circle c3 = new Circle() { Screen = screen, color = ConsoleColor.DarkGreen, X = 50, Y = 70, R = 23 };
-Line l1 = new Line() { Screen = screen, color = ConsoleColor.DarkBlue, X1 = 10, Y1 = 10, X2 = 60, Y2 = 40 };
-Rectangle r1 = new Rectangle() { Screen = screen, color = ConsoleColor.Blue, X1 = 20, Y1 = 30, X2 = 80, Y2 = 50 };
-Rectangle r2 = new Rectangle() { Screen = screen, color = ConsoleColor.Yellow, X1 = 50, Y1 = 20, X2 = 70, Y2 = 90 };
+Zeichnung.Add(new Rectangle() { Screen = screen, color = ConsoleColor.Gray, X1 = 10, Y1 = 60, X2 = 60, Y2 = 98 });
+Zeichnung.Add(new Rectangle() { Screen = screen, color = ConsoleColor.Gray, X1 = 20, Y1 = 70, X2 = 30, Y2 = 80 });
+Zeichnung.Add(new Rectangle() { Screen = screen, color = ConsoleColor.Gray, X1 = 35, Y1 = 70, X2 = 50, Y2 = 98 });
 
-Shapes Zeichnung = new Shapes();
-//                    Index
-Zeichnung.Add(c1); // 0
-Zeichnung.Add(c2); // 1
-Zeichnung.Add(c3); // 2
-Zeichnung.Add(r1); // 3
-Zeichnung.Add(r2); // 4
-Zeichnung.Add(l1); // 5
+Zeichnung.Add(new Line()      { Screen = screen, color = ConsoleColor.DarkRed, X1 = 35, Y1 = 40, X2 = 62, Y2 = 61 });
+Zeichnung.Add(new Line()      { Screen = screen, color = ConsoleColor.Red,     X1 = 35, Y1 = 40, X2 =  8, Y2 = 61 });
+
+Zeichnung.Add(new Rectangle() { Screen = screen, color = ConsoleColor.Gray, X1 = 70, Y1 = 70, X2 = 72, Y2 = 98 });
+Zeichnung.Add(new Circle()    { Screen = screen, color = ConsoleColor.Green, X = 71, Y = 50, R = 20 });
+Zeichnung.Add(new Circle()    { Screen = screen, color = ConsoleColor.Green, X = 71, Y = 50, R = 19 });
+Zeichnung.Add(new Circle()    { Screen = screen, color = ConsoleColor.Green, X = 71, Y = 50, R = 18 });
+
+Zeichnung.Add(new Circle()    { Screen = screen, color = ConsoleColor.Yellow, X = 80, Y = 20, R = 6 });
 
 Zeichnung.DrawAll();
 
@@ -40,6 +39,10 @@ do
 		case ConsoleKey.D3: index = 3; break;
 		case ConsoleKey.D4: index = 4; break;
 		case ConsoleKey.D5: index = 5; break;
+		case ConsoleKey.D6: index = 6; break;
+		case ConsoleKey.D7: index = 7; break;
+		case ConsoleKey.D8: index = 8; break;
+		case ConsoleKey.D9: index = 9; break;
 		case ConsoleKey.LeftArrow:   Zeichnung.GetShapeByIndex(index).Move(-1,  0); break;
 		case ConsoleKey.RightArrow:	 Zeichnung.GetShapeByIndex(index).Move( 1,  0); break;
 		case ConsoleKey.UpArrow:	 Zeichnung.GetShapeByIndex(index).Move( 0, -1); break;
