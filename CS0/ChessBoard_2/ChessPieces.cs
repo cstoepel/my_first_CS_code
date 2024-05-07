@@ -10,7 +10,13 @@ internal class ChessPiece
 {
 	public int Dim;  // Dimensionen der quadratischen Bitmap der Schachfigur Dim x Dim
 	public ConsoleColor ForeGround = ConsoleColor.Magenta;
+	public RGBColor ForeGroundRGB = new RGBColor();
 	public string bitmap;
+}
+
+internal class RGBColor
+{
+	public int r, g, b;
 }
 
 internal static class PiecesBitmaps{
