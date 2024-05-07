@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Screen_3
 {
-	internal class Circle
+	internal class Circle : Shape
 	{
 		public Circle() { }
 		public int _X;
@@ -16,9 +16,15 @@ namespace Screen_3
 		public int Y { get { return _Y; } set { _Y = value < 0 ? 0 : value > Screen.Height - 1 ? Screen.Height : value; } }
 		public int R { get { return _R; } set { _R = value < 1 ? 1 : value > 100 ? 100 : value; } }
 		public ConsoleScreen Screen { get; set; }
-		public void Draw() {  Draw(X, Y, R); }
+		internal override void Move(int dx, int dy)
+		{
+			X += dx;
+			Y += dy;
+		}
+		internal override void Draw() {  Draw(X, Y, R); }
 		public void Draw(int xc, int yc, int r)
 		{
+			Screen.ForeGround = color;
 			// Midpoint circle algorithm
 			// Jesko's Method (x und y vertauscht, aber egal weil symetrisch)
 			// https://en.wikipedia.org/wiki/Midpoint_circle_algorithm

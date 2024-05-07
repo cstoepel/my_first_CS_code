@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Screen_3
-{
-	internal static class Pixel
-	{
-		static public void SetPixel(ConsoleScreen cs, int x, int y)
-		{
-			if (x < 0 || y < 0) return;
-			if (x > cs.Width - 1 || y > cs.Height - 1) return;
-			Console.SetCursorPosition(x, y);
-			Console.Write("o");
-		}
+namespace Screen_3;
 
+internal static class Pixel
+{
+	static public void SetPixel(ConsoleScreen cs, int x, int y, char c = '█')
+	{
+		if (x < 0 || y < 0) return;
+		if (x > cs.Width - 1 || y > cs.Height - 1) return;
+		Console.SetCursorPosition(x, y);
+		Console.Write(c);
 	}
+
 }

@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 
 namespace Screen_3
 {
-	internal class Line
+	internal class Line : Shape
 	{
 		public Line() { }
-		public int X1 { get; set; }
-		public int Y1 { get; set; }
-		public int X2 { get; set; }
-		public int Y2 { get; set; }
+		public int _X1, _Y1, _X2, _Y2;
+		public int X1 { get { return _X1; } set { _X1 = value < 0 ? 0 : value > Screen.Width - 1 ? Screen.Width : value; } }
+		public int Y1 { get { return _Y1; } set { _Y1 = value < 0 ? 0 : value > Screen.Width - 1 ? Screen.Width : value; } }
+		public int X2 { get { return _X2; } set { _X2 = value < 0 ? 0 : value > Screen.Width - 1 ? Screen.Width : value; } }
+		public int Y2 { get { return _Y2; } set { _Y2 = value < 0 ? 0 : value > Screen.Width - 1 ? Screen.Width : value; } }
 		public ConsoleScreen Screen { get; set; }
+		internal override void Move(int dx, int dy)
+		{
+			X1 += dx;
+			Y1 += dy;
+			X2 += dx;
+			Y2 += dy;
+		}
 		public void Draw(int x1, int y1, int x2, int y2)
 		{
 			X1 = x1;
@@ -25,8 +33,9 @@ namespace Screen_3
 		}
 		// Bresenham's line algorithm
 		// https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
-		public void Draw()
+		internal override void Draw()
 		{
+			Screen.ForeGround = color;
 			int m = 2 * (Y2 - Y1);
 			int err = m - (X2 - X1);
 			for (int x = X1, y = Y1; x <= X2; ++x)
@@ -40,13 +49,5 @@ namespace Screen_3
 				}
 			}
 		}
-		//private void SetPixel(int x, int y)
-		//{
-		//	if (x < 0 || y < 0) return;
-		//	if (x > Screen.Width - 1 || y > Screen.Height - 1) return;
-		//	Console.SetCursorPosition(y, x);
-		//	Console.Write("o");
-		//}
-
 	}
 }
