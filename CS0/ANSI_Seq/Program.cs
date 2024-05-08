@@ -6,7 +6,8 @@
 		{
 			// Wikipedia ANSI Code Sequenzen
 			// https://en.wikipedia.org/wiki/ANSI_escape_code
-
+			Console.ResetColor();
+			Console.BackgroundColor = ConsoleColor.Green;
 			const string CSI        = "\x1b[";
 			const string SeqEnd     = "m";
 			const string ResetColor = CSI + "0m";
@@ -16,7 +17,7 @@
 			{
 				for (int j = 0; j < 256; j += 4)
 				{
-					Console.Write(RGBColor + i.ToString() + ";" + j.ToString() + ";200" + SeqEnd);
+					Console.Write(RGBColor + i.ToString() + ";" + j.ToString() + ";50" + SeqEnd);
 					Console.Write("█");
 				}
 				Console.Write(ResetColor + "\n");
