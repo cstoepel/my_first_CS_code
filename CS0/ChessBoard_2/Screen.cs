@@ -19,62 +19,39 @@ internal class ConsoleScreen
 	{
 		Width = width;
 		Height = height;
-		ForeGround = fg;
-		BackGround = bg;
 		Console.SetWindowSize(width, height);
 		Console.ResetColor();
-		Console.ForegroundColor = ForeGround;
-		Console.BackgroundColor = BackGround;
-
+		Console.ForegroundColor = fg;
+		Console.BackgroundColor = bg;
 	}
 
 	public int Width { get; }
 	public int Height { get; }
-	private ConsoleColor _ForeGround;
-	private ConsoleColor _BackGround;
-	public ConsoleColor ForeGround
+	public void SetFGColor(ConsoleColor c) { Console.ForegroundColor = c;}
+	public void SetBGColor(ConsoleColor c) { Console.BackgroundColor = c; }
+	public void SetFGColor(byte r, byte g, byte b)
 	{
-		get
-		{
-			return _ForeGround;
-		}
-		set
-		{
-			_ForeGround = value;
-			Console.ForegroundColor = ForeGround;
-		}
+		Console.ResetColor();
+		Console.SetCursorPosition(0,0);
+		//Console.Write();
+		Console.Write(
+			"\x1b[38;2;" +
+			r.ToString() + ";" +
+			g.ToString() + ";" +
+			b.ToString() +
+			"m"
+		);
 	}
-	public ConsoleColor BackGround
+	public void SetBGColor(byte r, byte g, byte b)
 	{
-		get
-		{
-			return _BackGround;
-		}
-		set
-		{
-			_BackGround = value;
-			Console.BackgroundColor = BackGround;
-		}
+		Console.Write(
+			"\x1b[48;2;" +
+			r.ToString() + ";" +
+			g.ToString() + ";" +
+			b.ToString() +
+			"m"
+		);
 	}
-	private RGBColor _ForeGroundRGB;
-		public RGBColor ForeGroundRGB 
-		{ 
-			get => _ForeGroundRGB; 
-			set
-			{
-				_ForeGroundRGB = value;
-				const string CSI = "\x1b[";
-				const string SeqEnd = "0m";
-				const string RGBColor = CSI + "38;2;";
-				Console.Write(
-					RGBColor +
-					_ForeGroundRGB.r.ToString() + ";" + 
-					_ForeGroundRGB.g.ToString() + ";" + 
-					_ForeGroundRGB.b.ToString() + 
-					SeqEnd
-				);
-		}
-	}
-		public void Clear() { Console.Clear(); }
-		public void ResetColor() { Console.ResetColor(); }
+	public void Clear() { Console.Clear(); }
+	public void ResetColor() { Console.ResetColor(); }
 }

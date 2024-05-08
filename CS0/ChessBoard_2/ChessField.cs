@@ -15,15 +15,16 @@ internal class ChessField
 	public ChessPiece p;
 	public void Draw()
 	{
-		Screen.ForeGround = FGColor;
-		if (p != null) Screen.ForeGround = p.ForeGround;
-		Screen.BackGround = BGColor;
+		Screen.SetFGColor(FGColor);
+		//if (p != null) Screen.ForeGround = p.ForeGround;
+		if (p != null) Screen.SetFGColor(p.fg.r, p.fg.g, p.fg.b);
+		Screen.SetBGColor(BGColor);
 		for (int y = 0; y < d;  y++)
 		{
 			for(int x = 0; x < d; x++)
 			{
 				char c = ' ';
-				if (p != null) 
+				if (p != null)
 				{
 					c = p.bitmap[y * d + x];
 				}

@@ -10,19 +10,32 @@ internal class Program
 
 		Board board = new Board(screen, 8);
 
-		ChessPiece BlackPawn   = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed,   bitmap = PiecesBitmaps.Pawn };
-		ChessPiece BlackKnight = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed,   bitmap = PiecesBitmaps.Knight };
-		ChessPiece BlackBishop = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed,   bitmap = PiecesBitmaps.Bishop };
-		ChessPiece BlackRook   = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed,   bitmap = PiecesBitmaps.Rook };
-		ChessPiece BlackQueen  = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed,   bitmap = PiecesBitmaps.Queen };
-		ChessPiece BlackKing   = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed,   bitmap = PiecesBitmaps.King };
+		ChessPiece BlackPawn   = new ChessPiece { Dim = 12, fg = {r=0x00,g=0x00,b=0x66}, bitmap = PiecesBitmaps.Pawn };
+		ChessPiece BlackKnight = new ChessPiece { Dim = 12, fg = {r=0x00,g=0x00,b=0x66}, bitmap = PiecesBitmaps.Knight };
+		ChessPiece BlackBishop = new ChessPiece { Dim = 12, fg = {r=0x00,g=0x00,b=0x66}, bitmap = PiecesBitmaps.Bishop };
+		ChessPiece BlackRook   = new ChessPiece { Dim = 12, fg = {r=0x00,g=0x00,b=0x66}, bitmap = PiecesBitmaps.Rook };
+		ChessPiece BlackQueen  = new ChessPiece { Dim = 12, fg = {r=0x00,g=0x00,b=0x66}, bitmap = PiecesBitmaps.Queen };
+		ChessPiece BlackKing   = new ChessPiece { Dim = 12, fg = {r=0x00,g=0x00,b=0x66}, bitmap = PiecesBitmaps.King };
+		ChessPiece WhitePawn   = new ChessPiece { Dim = 12, fg = {r=0xff,g=0x00,b=0x00}, bitmap = PiecesBitmaps.Pawn };
+		ChessPiece WhiteKnight = new ChessPiece { Dim = 12, fg = {r=0xff,g=0x00,b=0x00}, bitmap = PiecesBitmaps.Knight };
+		ChessPiece WhiteBishop = new ChessPiece { Dim = 12, fg = {r=0xff,g=0x00,b=0x00}, bitmap = PiecesBitmaps.Bishop };
+		ChessPiece WhiteRook   = new ChessPiece { Dim = 12, fg = {r=0xff,g=0x00,b=0x00}, bitmap = PiecesBitmaps.Rook };
+		ChessPiece WhiteQueen  = new ChessPiece { Dim = 12, fg = {r=0xff,g=0x00,b=0x00}, bitmap = PiecesBitmaps.Queen };
+		ChessPiece WhiteKing   = new ChessPiece { Dim = 12, fg = {r=0xff,g=0x00,b=0x00}, bitmap = PiecesBitmaps.King };
 
-		ChessPiece WhitePawn   = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Pawn };
-		ChessPiece WhiteKnight = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Knight };
-		ChessPiece WhiteBishop = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Bishop };
-		ChessPiece WhiteRook   = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Rook };
-		ChessPiece WhiteQueen  = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Queen };
-		ChessPiece WhiteKing   = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.King };
+		//ChessPiece BlackPawn = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed, bitmap = PiecesBitmaps.Pawn };
+		//ChessPiece BlackKnight = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed, bitmap = PiecesBitmaps.Knight };
+		//ChessPiece BlackBishop = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed, bitmap = PiecesBitmaps.Bishop };
+		//ChessPiece BlackRook = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed, bitmap = PiecesBitmaps.Rook };
+		//ChessPiece BlackQueen = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed, bitmap = PiecesBitmaps.Queen };
+		//ChessPiece BlackKing = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkRed, bitmap = PiecesBitmaps.King };
+
+		//ChessPiece WhitePawn = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Pawn };
+		//ChessPiece WhiteKnight = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Knight };
+		//ChessPiece WhiteBishop = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Bishop };
+		//ChessPiece WhiteRook = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Rook };
+		//ChessPiece WhiteQueen = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.Queen };
+		//ChessPiece WhiteKing = new ChessPiece { Dim = 12, ForeGround = ConsoleColor.DarkGreen, bitmap = PiecesBitmaps.King };
 
 		board.PutChessPiece(BlackRook   ,0 , 0);
 		board.PutChessPiece(BlackKnight ,0 , 1);

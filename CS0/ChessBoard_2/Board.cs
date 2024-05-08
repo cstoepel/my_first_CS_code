@@ -87,7 +87,7 @@ internal class Board
 
 	public void PutChessPiece(ChessPiece p, int x, int y)
 	{
-		Fields[N * y +x].p = p;
+		Fields[N * y + x].p = p;
 	}
 
 	public ChessPiece GetChessPiece(int x, int y)

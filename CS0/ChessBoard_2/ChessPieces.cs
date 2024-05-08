@@ -8,15 +8,20 @@ namespace ChessBoard;
 
 internal class ChessPiece
 {
+	public ChessPiece()
+	{
+		fg = new RGBColor() { r = 0xff, g = 0xff, b = 0xff };
+		bg = new RGBColor() { r = 0x00, g = 0x00, b = 0x00 };
+	}
 	public int Dim;  // Dimensionen der quadratischen Bitmap der Schachfigur Dim x Dim
-	public ConsoleColor ForeGround = ConsoleColor.Magenta;
-	public RGBColor ForeGroundRGB = new RGBColor();
+	public RGBColor fg;
+	public RGBColor bg;
 	public string bitmap;
 }
 
 internal class RGBColor
 {
-	public int r, g, b;
+	public byte r, g, b;
 }
 
 internal static class PiecesBitmaps{

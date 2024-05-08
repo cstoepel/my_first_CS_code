@@ -30,9 +30,9 @@ c1b2
 c8d7
 a1c1
 f8d8
-e4d4
+e2d4
 c6d4
-e3d4
+f3d4
 d7a4
 --------------
 18. Lb3 Lxb3 
