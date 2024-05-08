@@ -1,5 +1,10 @@
 ﻿namespace ChessBoard;
 
+// Console Eigenschaften:
+// Rasterfont 8x8
+// Window Size: Width > 120, Height > 120
+
+
 internal class Program
 {
 	static void Main(string[] args)
