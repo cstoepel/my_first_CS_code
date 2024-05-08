@@ -8,8 +8,7 @@ namespace ChessBoard;
 
 internal class Board
 {
-	public int N;
-	//ChessField cf = new ChessField();
+	public int BoardDimension;
 	List<ChessField> Fields = new List<ChessField>();
 	public ConsoleScreen Screen;
 	public RGBColor BlackColor = new RGBColor() { r = 0x44, g = 0x44, b = 0x44 };
@@ -17,12 +16,11 @@ internal class Board
 	public Board(ConsoleScreen screen, int n)
 	{
 		Screen = screen;
-		N = n;
+		BoardDimension = n;
 		for (int x = 0; x < n; x++)
 		{
 			for (int y = 0; y < n; y++)
 			{
-				//Console.Write($"{x},{y}  ");
 				Fields.Add(
 					new ChessField
 					{
@@ -30,8 +28,6 @@ internal class Board
 						d = 12,
 						ix = x,
 						iy = y,
-						//FGColor = ConsoleColor.DarkGreen,
-						//BGColor = ((x + y) % 2 == 0) ? ConsoleColor.Gray : ConsoleColor.Black
 						fg = { r = 0, g = 0, b = 0 },
 						bg = ((x + y) % 2 == 0) ? WhiteColor : BlackColor
 						}
@@ -49,23 +45,23 @@ internal class Board
 	public void Move(string MoveCode)
 	{
 		// a2a4, b1c3, ...
-		int y0 = MoveCode2Int(MoveCode[0]);
-		int x0 = MoveCode2Int(MoveCode[1]);
-		int y1 = MoveCode2Int(MoveCode[2]);
-		int x1 = MoveCode2Int(MoveCode[3]);
+		// xyxy
+		// 0011
+		int y0 = Decode(MoveCode[0]);
+		int x0 = Decode(MoveCode[1]);
+		int y1 = Decode(MoveCode[2]);
+		int x1 = Decode(MoveCode[3]);
 
-		int a = N * x0 + y0;
-		int b = N * x1 + y1;
-		//Console.Write($" von:{a}\n");
-		//Console.Write($"nach:{b}\n");
-		PutChessPiece(GetChessPiece(x0, y0), x1, y1);
-		PutChessPiece(null, x0, y0);
-		Fields[N * y0 + x0].Draw();
-		Fields[N * y1 + x1].Draw();
+		int a = BoardDimension * y0 + x0;
+		int b = BoardDimension * y1 + x1;
 
+		Fields[b].p = Fields[a].p;
+		Fields[a].p = null;
+		Fields[a].Draw();
+		Fields[b].Draw();
 	}
 
-	private int MoveCode2Int(char c)
+	private int Decode(char c)
 		{
 			switch (c)
 			{
@@ -89,13 +85,6 @@ internal class Board
 			}
 		}
 
-	public void PutChessPiece(ChessPiece p, int x, int y)
-	{
-		Fields[N * y + x].p = p;
-	}
-
-	public ChessPiece GetChessPiece(int x, int y)
-	{
-		return Fields[N * y + x].p;
-	}
+	public void PutChessPiece(ChessPiece p, int x, int y) { Fields[BoardDimension * y + x].p = p; }
+	public ChessPiece GetChessPiece(int x, int y) { return Fields[BoardDimension * y + x].p; }
 }
