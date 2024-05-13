@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessBoard_2", "ChessBoard_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessBoard_3", "ChessBoard_3\ChessBoard_3.csproj", "{026A4AA3-1748-43F4-A381-37B2DF4A1DE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{7B457FCA-B099-45DB-9239-9E9E9A53919A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{026A4AA3-1748-43F4-A381-37B2DF4A1DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{026A4AA3-1748-43F4-A381-37B2DF4A1DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{026A4AA3-1748-43F4-A381-37B2DF4A1DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B457FCA-B099-45DB-9239-9E9E9A53919A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B457FCA-B099-45DB-9239-9E9E9A53919A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B457FCA-B099-45DB-9239-9E9E9A53919A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B457FCA-B099-45DB-9239-9E9E9A53919A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
