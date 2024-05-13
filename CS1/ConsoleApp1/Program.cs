@@ -40,11 +40,11 @@ internal class Program
 	[DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
 		public static extern IntPtr CreateConsoleScreenBuffer
 		(
-			UInt32 dwDesiredAccess,
-			UInt32 dwShareMode,
-			IntPtr lpSecurityAttributes,
-			UInt32 dwFlags,
-			IntPtr lpScreenBufferData
+			UInt32 dwDesiredAccess,  // GENERIC_WRITE 
+			UInt32 dwShareMode,       //  0x0
+			IntPtr lpSecurityAttributes,  // IntPtr.Zero
+			UInt32 dwFlags,               // CONSOLE_TEXTMODE_BUFFER
+			IntPtr lpScreenBufferData //
 		);
 		[DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
 		public static extern int WriteConsoleOutput(
