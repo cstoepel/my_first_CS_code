@@ -15,9 +15,5 @@ public delegate void Func2(int a);
 
 internal static class A
 {
-	public void f(int a)
-	{
-
-	}
 }
 

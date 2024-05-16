@@ -40,6 +40,7 @@ internal class WinConsole
 	private short Key_wVirtualKeyCode =0;
 	private short Key_wVirtualScanCode = 0;
 	private int Key_dwControlKeyState = 0;
+	private short ColorIndex = 15;
 
 
 	public WinConsole(int width, int height, ConsoleColor fg = ConsoleColor.DarkGray, ConsoleColor bg = ConsoleColor.Black)
@@ -76,6 +77,7 @@ internal class WinConsole
 		RefreshTimer = new System.Timers.Timer(10.0);
 		RefreshTimer.Elapsed += RefreshScreen;
 		RefreshTimer.Enabled = true;
+		ClearScreen();
 	}
 
 	public void SetFGColor(ConsoleColor c) { Console.ForegroundColor = c; }
@@ -96,10 +98,10 @@ internal class WinConsole
 			ref Rect
 		);
 	}
-	public void SetPixel(int x, int y, char c = '█')
+	public void SetPixel(int x, int y, char c = '█', Int16 attr = 0x000f)
 	{
 		Character.UnicodeChar = c;
-		Character.Attributes = 0x000f;
+		Character.Attributes = attr;
 		CharInfoBuffer[y * Width + x] = Character;
 	}
 
@@ -112,29 +114,24 @@ internal class WinConsole
 
 	public void RefreshScreen(Object source, System.Timers.ElapsedEventArgs e)
 	{
-		ClearScreen();
-		CopyBuffer();
+		//ClearScreen();
 		FrameCounter++;
-		Console.SetCursorPosition(Mouse_x, Mouse_y);
-		Console.WriteLine("╔═══════════════════════╗");
-		Console.SetCursorPosition(Mouse_x, Mouse_y+1);
-		Console.WriteLine($"║ RefreshScreen: {FrameCounter:d5}  ║");
-		Console.SetCursorPosition(Mouse_x, Mouse_y+2);
-		Console.WriteLine("╚═══════════════════════╝");
-
-		Console.SetCursorPosition(0, 0);
+		//Console.SetCursorPosition(0, 0);
+		//Console.WriteLine("╔═══════════════════════╗");
+		//Console.WriteLine($"║ RefreshScreen: {FrameCounter:d5}  ║");
+		//Console.WriteLine("╚═══════════════════════╝");
 
 		UInt32 Number_of_Events  = 0;
 		UInt32 Events_ausgelesen = 0;
 		Win32.GetNumberOfConsoleInputEvents(Handle_STDIN, ref Number_of_Events);
 
-		Console.Write($"    Win32.GetNumberOfConsoleInputEvents()\n");
-		Console.Write($"        Nr Events in Warteschlange = {Number_of_Events}\n");
+		//Console.Write($"    Win32.GetNumberOfConsoleInputEvents()\n");
+		//Console.Write($"        Nr Events in Warteschlange = {Number_of_Events}\n");
 
 		if (Number_of_Events > 0) Win32.ReadConsoleInput(Handle_STDIN, InputRecords, 1, ref Events_ausgelesen);
 
-		Console.Write($"    Win32.ReadConsoleInput()\n");
-		Console.Write($"        Nr. Events ausgelesen = {Events_ausgelesen}\n\n");
+		//Console.Write($"    Win32.ReadConsoleInput()\n");
+		//Console.Write($"        Nr. Events ausgelesen = {Events_ausgelesen}\n\n");
 
 		for (int i = 0; i < Events_ausgelesen; i++)
 		{
@@ -147,6 +144,19 @@ internal class WinConsole
 					Key_wVirtualKeyCode   = InputRecords[i].EventRecord.KeyEvent.wVirtualKeyCode;
 					Key_wVirtualScanCode  = InputRecords[i].EventRecord.KeyEvent.wVirtualScanCode;
 					Key_dwControlKeyState = InputRecords[i].EventRecord.KeyEvent.dwControlKeyState;
+					switch(Key_wVirtualKeyCode)
+					{
+						case 0x0031: ColorIndex = 9; break;
+						case 0x0032: ColorIndex = 1; break;
+						case 0x0033: ColorIndex = 2; break;
+						case 0x0034: ColorIndex = 3; break;
+						case 0x0035: ColorIndex = 4; break;
+						case 0x0036: ColorIndex = 5; break;
+						case 0x0037: ColorIndex = 6; break;
+						case 0x0038: ColorIndex = 7; break;
+						case 0x0039: ColorIndex =10; break;
+					}
+
 					break;
 				case Win32.MOUSE_EVENT:
 					Mouse_x       = InputRecords[i].EventRecord.MouseEvent.dwMousePosition.X;
@@ -154,13 +164,18 @@ internal class WinConsole
 					Mouse_button  = InputRecords[i].EventRecord.MouseEvent.dwButtonState;
 					Mouse_control = InputRecords[i].EventRecord.MouseEvent.dwControlKeyState;
 					Mouse_flags   = InputRecords[i].EventRecord.MouseEvent.dwEventFlags;
+					switch (Mouse_button)
+					{
+						case 0x00000001: SetPixel(Mouse_x, Mouse_y, '█', ColorIndex); break;
+						case 0x00000002: SetPixel(Mouse_x, Mouse_y, '.', 1); break;
+					}
 					break;
 				case Win32.WINDOW_BUFFER_SIZE_EVENT: break;
 				case 0: break;
 			}
 		}
-		Console.Write($"MOUSE:          XY = [{Mouse_x,3},{Mouse_y,3}]\n            button = 0x{Mouse_button:x8}\n           control = 0x{Mouse_control:x8}\n             flags = 0x{Mouse_flags:x8} \n");
-		Console.Write($"  KEY:     KeyDown = 0x{Key_bKeyDown:x8}\n       RepeatCount = 0x{Key_wRepeatCount:x4}\n    VirtualKeyCode = 0x{Key_wVirtualKeyCode:x4}\n   VirtualScanCode = 0x{Key_wVirtualScanCode:x4} \n");
-
+		//Console.Write($"MOUSE:          XY = [{Mouse_x,3},{Mouse_y,3}]\n            button = 0x{Mouse_button:x8}\n           control = 0x{Mouse_control:x8}\n             flags = 0x{Mouse_flags:x8} \n");
+		//Console.Write($"  KEY:     KeyDown = 0x{Key_bKeyDown:x8}\n       RepeatCount = 0x{Key_wRepeatCount:x4}\n    VirtualKeyCode = 0x{Key_wVirtualKeyCode:x4}\n   VirtualScanCode = 0x{Key_wVirtualScanCode:x4} \n");
+		CopyBuffer();
 	}
 }

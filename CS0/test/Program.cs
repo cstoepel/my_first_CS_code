@@ -1,57 +1,38 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics.Arm;
+using System.Runtime.InteropServices;
 
 namespace test;
 
 internal class Program
 {
-	static void Main(string[] args)
+	static unsafe void Main(string[] args)
 	{
-		Class_A a = new Class_A();
-		Class_B b = new Class_B();
+		STRUCT_A A = new() { a=0,b=0,c=0};
 
-		//Base ba = b;
-		Class_A ba = b;
-		ba.print();
+		Console.WriteLine($"{sizeof(STRUCT_A)}");
+		Console.WriteLine($"{sizeof(A)}");
 
-		Class_C c = new Class_C();
-		c.Print1();
-		c.Print2();
+		STRUCT_A[] Ar = new STRUCT_A[12];
+		Console.WriteLine($"{sizeof(Ar)}");
+
+		int[] IAr = [1, 2, 3, 4, 5];
+		Console.WriteLine($"{sizeof(IAr)}");
+
+		const int[] cIAr = [1, 2, 3, 4, 5];
+
+		// ___in_C_________________________________
+		//
+		// int ar[100];
+		// n = sizeof(ar) / sizeof(ar[0]);
+
 	}
 }
 
-class Base
-{
-	public virtual void print() { Console.WriteLine("Base.print"); }
-}
 
-class Class_A: Base
+struct STRUCT_A
 {
-	public virtual void print() { Console.WriteLine("Class_A.print"); }
-}
-
-class Class_B : Class_A
-{
-	public override void print() { Console.WriteLine("Class_B.print"); }
-}
-
-public interface I1
-{
-	void Print1();
-}
-
-public interface I2:I1
-{
-	void Print2();
-}
-
-public class Base_of_C
-{
-	public void Print() { Console.WriteLine("Base_of_C.Print"); }
-}
-
-public class Class_C: Base_of_C, I2
-{
-	public void Print1() { Console.WriteLine("Class_C.Print1"); }
-	public void Print2() { Console.WriteLine("Class_C.Print2"); }
+	public Int32 a;
+	public Int32 b;
+	public Int32 c;
 }
