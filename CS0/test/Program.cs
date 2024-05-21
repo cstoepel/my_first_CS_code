@@ -11,15 +11,15 @@ internal class Program
 		STRUCT_A A = new() { a=0,b=0,c=0};
 
 		Console.WriteLine($"{sizeof(STRUCT_A)}");
-		Console.WriteLine($"{sizeof(A)}");
+		//Console.WriteLine($"{sizeof(A)}");
 
 		STRUCT_A[] Ar = new STRUCT_A[12];
-		Console.WriteLine($"{sizeof(Ar)}");
+		//Console.WriteLine($"{sizeof(Ar)}");
 
 		int[] IAr = [1, 2, 3, 4, 5];
-		Console.WriteLine($"{sizeof(IAr)}");
+		//Console.WriteLine($"{sizeof(IAr)}");
 
-		const int[] cIAr = [1, 2, 3, 4, 5];
+		//const int[] cIAr = [1, 2, 3, 4, 5];
 
 		// ___in_C_________________________________
 		//

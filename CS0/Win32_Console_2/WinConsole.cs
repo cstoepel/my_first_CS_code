@@ -155,6 +155,8 @@ internal class WinConsole
 						case 0x0037: ColorIndex = 6; break;
 						case 0x0038: ColorIndex = 7; break;
 						case 0x0039: ColorIndex =10; break;
+						case 0x0043: ClearScreen(' '); break;
+						case 0x0050: ClearScreen(); break;
 					}
 
 					break;
@@ -167,7 +169,7 @@ internal class WinConsole
 					switch (Mouse_button)
 					{
 						case 0x00000001: SetPixel(Mouse_x, Mouse_y, '█', ColorIndex); break;
-						case 0x00000002: SetPixel(Mouse_x, Mouse_y, '.', 1); break;
+						case 0x00000002: SetPixel(Mouse_x, Mouse_y, 'X', ColorIndex); break;
 					}
 					break;
 				case Win32.WINDOW_BUFFER_SIZE_EVENT: break;
