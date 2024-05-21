@@ -114,22 +114,22 @@ public static class Win32
 		public COORD dwMaximumWindowSize;
 		public ushort wPopupAttributes;
 		public bool bFullscreenSupported;
-		public COLORREF color00;
-		public COLORREF color01;
-		public COLORREF color02;
-		public COLORREF color03;
-		public COLORREF color04;
-		public COLORREF color05;
-		public COLORREF color06;
-		public COLORREF color07;
-		public COLORREF color08;
-		public COLORREF color09;
-		public COLORREF color10;
-		public COLORREF color11;
-		public COLORREF color12;
-		public COLORREF color13;
-		public COLORREF color14;
-		public COLORREF color15;
+		public COLORREF color0;
+		public COLORREF color1;
+		public COLORREF color2;
+		public COLORREF color3;
+		public COLORREF color4;
+		public COLORREF color5;
+		public COLORREF color6;
+		public COLORREF color7;
+		public COLORREF color8;
+		public COLORREF color9;
+		public COLORREF colorA;
+		public COLORREF colorB;
+		public COLORREF colorC;
+		public COLORREF colorD;
+		public COLORREF colorE;
+		public COLORREF colorF;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]

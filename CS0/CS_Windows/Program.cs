@@ -6,6 +6,7 @@ internal class Program
 	static unsafe void Main(string[] args)
 	{
 		WinConsole.Init(185, 58);
+		//WinConsole.Init(100, 100);
 
 		Window W0 = new Window("  Window1  ",  10, 10, 40, 25);
 		Window W1 = new Window("  What is C?  ",  32, 15, 30, 24);

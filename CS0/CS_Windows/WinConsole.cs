@@ -83,22 +83,22 @@ internal static class WinConsole
 		}
 		// Custom text color in C# console application
 		// https://stackoverflow.com/questions/7937256/custom-text-color-in-c-sharp-console-application
-		csbi.color00 = new COLORREF(Color.FromArgb(0x00, 0x00, 0x00, 0x00));
-		csbi.color01 = new COLORREF(Color.FromArgb(0x00, 0xff, 0x66, 0x00)); // rot
-		csbi.color02 = new COLORREF(Color.FromArgb(0x00, 0x99, 0x33, 0x00)); // dunkelrot
-		csbi.color03 = new COLORREF(Color.FromArgb(0x00, 0x66, 0xff, 0x00)); // gruen
-		csbi.color04 = new COLORREF(Color.FromArgb(0x00, 0x33, 0x99, 0x00)); // dunkelgruen
-		csbi.color05 = new COLORREF(Color.FromArgb(0x00, 0x00, 0x00, 0xff)); // blau
-		csbi.color06 = new COLORREF(Color.FromArgb(0x00, 0x00, 0x00, 0x99)); // dunkelbau
-		csbi.color07 = new COLORREF(Color.FromArgb(0x00, 0x77, 0x77, 0x77));
-		csbi.color08 = new COLORREF(Color.FromArgb(0x00, 0x88, 0x88, 0x88));
-		csbi.color09 = new COLORREF(Color.FromArgb(0x00, 0x99, 0x99, 0x99));
-		csbi.color10 = new COLORREF(Color.FromArgb(0x00, 0xaa, 0xaa, 0xaa)); //
-		csbi.color11 = new COLORREF(Color.FromArgb(0x00, 0x55, 0x55, 0x55)); //
-		csbi.color12 = new COLORREF(Color.FromArgb(0x00, 0x77, 0x77, 0x77)); // grau3
-		csbi.color13 = new COLORREF(Color.FromArgb(0x00, 0x99, 0x99, 0x99)); // grau2
-		csbi.color14 = new COLORREF(Color.FromArgb(0x00, 0xdd, 0xdd, 0xdd)); // grau1
-		csbi.color15 = new COLORREF(Color.FromArgb(0x00, 0xff, 0xff, 0xff)); // weiss
+		csbi.color0 = new COLORREF(Color.FromArgb(0x00, 0x00, 0x00, 0x00)); // schwarz
+		csbi.color1 = new COLORREF(Color.FromArgb(0x00, 0xff, 0x30, 0x00)); // rot
+		csbi.color2 = new COLORREF(Color.FromArgb(0x00, 0x99, 0x33, 0x00)); // dunkelrot
+		csbi.color3 = new COLORREF(Color.FromArgb(0x00, 0x66, 0xff, 0x00)); // gruen
+		csbi.color4 = new COLORREF(Color.FromArgb(0x00, 0x33, 0x99, 0x00)); // dunkelgruen
+		csbi.color5 = new COLORREF(Color.FromArgb(0x00, 0x00, 0x55, 0xff)); // blau
+		csbi.color6 = new COLORREF(Color.FromArgb(0x00, 0x00, 0x11, 0x99)); // dunkelbau
+		csbi.color7 = new COLORREF(Color.FromArgb(0x00, 0x76, 0x11, 0x99)); // megenta
+		csbi.color8 = new COLORREF(Color.FromArgb(0x00, 0xeb, 0xca, 0x50)); // gelb
+		csbi.color9 = new COLORREF(Color.FromArgb(0x00, 0x50, 0xcf, 0xcf)); // cyan
+		csbi.colorA = new COLORREF(Color.FromArgb(0x00, 0x00, 0x00, 0x00)); //
+		csbi.colorB = new COLORREF(Color.FromArgb(0x00, 0x33, 0x33, 0x33)); // grau1
+		csbi.colorC = new COLORREF(Color.FromArgb(0x00, 0x66, 0x66, 0x66)); // grau2
+		csbi.colorD = new COLORREF(Color.FromArgb(0x00, 0x99, 0x99, 0x99)); // grau3
+		csbi.colorE = new COLORREF(Color.FromArgb(0x00, 0xcc, 0xcc, 0xcc)); // grau4
+		csbi.colorF = new COLORREF(Color.FromArgb(0x00, 0xff, 0xff, 0xff)); // weiss
 		if (Win32.SetConsoleScreenBufferInfoEx(Handle_ActiveBuffer, ref csbi))
 			Console.WriteLine("ERROR SetConsoleScreenBufferInfoEx");
 

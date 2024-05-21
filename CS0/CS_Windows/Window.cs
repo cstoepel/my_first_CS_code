@@ -8,8 +8,8 @@ namespace Win32_Console;
 
 internal class Window {
 	public Win32.CHAR_INFO[] WindowBuffer { get; set; }
-	public Int32 WindowBufferSize;
 	public Win32.CHAR_INFO[] AppBuffer { get; set; }
+	public Int32 WindowBufferSize;
 	public Int32 AppBufferSize;
 	static public Win32.CHAR_INFO ClearChar;
 	public Win32.CHAR_INFO Character;
@@ -159,7 +159,7 @@ internal class Window {
 	{
 		while (true)
 		{
-			Thread.Sleep(100);
+			Thread.Sleep(75);
 			TextIndex = TextIndex >= Text.Length -1  ? 0 : TextIndex;
 			if (BuffIndex >= AppBuffer.Length - 1)
 			{
