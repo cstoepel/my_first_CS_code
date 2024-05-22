@@ -89,20 +89,6 @@ public static class Win32
 		[FieldOffset(2)] public Int16 Attributes;
 	}
 
-	//[StructLayout(LayoutKind.Sequential)]
-	//public struct PCONSOLE_SCREEN_BUFFER_INFOEX
-	//{
-	//	public UInt32 cbSize;                // 4
-	//	public COORD  dwSize;                // 2
-	//	public COORD  dwCursorPosition;      // 2
-	//	public UInt16 wAttributes;           // 2
-	//	public SMALL_RECT srWindow;          // 4 * 2 = 8
-	//	public COORD  dwMaximumWindowSize;   // 2 * 2 = 4
-	//	public UInt16 wPopupAttributes;      // 2
-	//	public Int32  bFullscreenSupported;  // 4
-	//	public fixed UInt32 ColorTable[16];        // 16 * 4 = 56   Layout: 0x00bbggrr
-	//}
-
 	[StructLayout(LayoutKind.Sequential)]
 	public struct PCONSOLE_SCREEN_BUFFER_INFOEX
 	{

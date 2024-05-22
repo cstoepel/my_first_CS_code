@@ -107,12 +107,13 @@ internal static class WinConsole
 		RootWindow.HasBorder      = false;
 		RootWindow.IsMovable      = false;
 		RootWindow.IsRoot         = true;
-		RootWindow.BackgroundChar = '░';
-		RootWindow.BackgroundAttr = 0x000b6;
+		RootWindow.ClearChar.UnicodeChar = '░';
+		RootWindow.ClearChar.Attributes = 0x00b6;
 		RootWindow.TitleAttr      = 0x002f;
-		RootWindow.TitleOffset    = 0;
-		RootWindow.Name = "░░░░░░░ Windows 3000 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░" +
+		RootWindow.WindowTitleOffset    = 0;
+		RootWindow.WindowTitle = "░░░░░░░ Windows 3000 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░" +
 						  "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
+		RootWindow.ClearWindowBuffer();
 		RootWindow.Refresh();
 		AddWindow(RootWindow);
 	}
@@ -172,6 +173,7 @@ internal static class WinConsole
 
 	// Copy Window-Buffer to Screen-Buffer
 	static public void CopyBuffer(Window w)	{
+		CopyBufferMutex.WaitOne();
 		int source_index = 0, dest_index = 0;
 		for (int y = 0; y < w.Height; y++) {
 			for (int x = 0; x < w.Width; x++) {
@@ -182,6 +184,7 @@ internal static class WinConsole
 				}
 			}
 		}
+		CopyBufferMutex.ReleaseMutex();
 	}
 
 	// Copy Screen-Buffer to Console-Buffer
@@ -193,23 +196,6 @@ internal static class WinConsole
 			x0y0,
 			ref Rect);
 	}
-
-	static public void SetPixel(Window w, int x, int y, char c = '█', Int16 attr = 0x000f) {
-		CopyBufferMutex.WaitOne();
-			Character.UnicodeChar = c;
-			Character.Attributes  = attr;
-			w.WindowBuffer[y * w.Width + x] = Character;
-		CopyBufferMutex.ReleaseMutex();
-	}
-
-	//static public void Clear(Window w, char c = '.')
-	//{
-	//	CopyBufferMutex.WaitOne();
-	//		Character.UnicodeChar = c;
-	//		Character.Attributes = 0x000f;
-	//		for (int i = 0; i < w.WindowBufferSize; i++) w.WindowBuffer[i] = Character;
-	//	CopyBufferMutex.ReleaseMutex();
-	//}
 
 	static public void ClearBuffer(char c = '.') {
 		Character.UnicodeChar = c;
@@ -314,10 +300,8 @@ internal static class WinConsole
 	static public void RefreshScreen()
 	{
 		//ClearBuffer();  // Wenn es ein RootWindow gibt dann kann man sich das sparen
-		CopyBufferMutex.WaitOne();
-			foreach (var w in WindowList) CopyBuffer(w);
-		CopyBufferMutex.ReleaseMutex();
+		foreach (var w in WindowList) CopyBuffer(w);
 		FlushBuffer();
-		Console.SetCursorPosition(0, 0);
+		//Console.SetCursorPosition(0, 0);
 	}
 }

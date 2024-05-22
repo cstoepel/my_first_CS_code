@@ -6,33 +6,37 @@ namespace test;
 
 internal class Program
 {
+
+	public delegate int Func(int a = 1);
 	static unsafe void Main(string[] args)
 	{
-		STRUCT_A A = new() { a=0,b=0,c=0};
 
-		Console.WriteLine($"{sizeof(STRUCT_A)}");
-		//Console.WriteLine($"{sizeof(A)}");
-
-		STRUCT_A[] Ar = new STRUCT_A[12];
-		//Console.WriteLine($"{sizeof(Ar)}");
-
-		int[] IAr = [1, 2, 3, 4, 5];
-		//Console.WriteLine($"{sizeof(IAr)}");
-
-		//const int[] cIAr = [1, 2, 3, 4, 5];
-
-		// ___in_C_________________________________
-		//
-		// int ar[100];
-		// n = sizeof(ar) / sizeof(ar[0]);
-
+	A a = new();
+		Func f = new Func(A.f5);
 	}
+	public static int f1(int a = 1) { return a; }
+	public static int f2(int a) { return a; }
+	public  int f3(int a) { return a; }
+	public  int f4(int a) { return a; }
+	private  int f5(int a) { return a; }
 }
 
 
-struct STRUCT_A
+public class A
 {
-	public Int32 a;
-	public Int32 b;
-	public Int32 c;
+
+	 public void Methode()
+	{
+		A a = new();
+		Func f = new Func(a.f5);
+		f(1);
+	}
+	public delegate int Func(int a = 1);
+	public static int f1(int a = 1) { return a; }
+	public static int f2(int a) { return a; }
+	public int f3() { int a = 1;  return a; }
+	public int f4(int a) { return a; }
+	private int f5(int a) { return a; }
+	public static int f6(int a) { return a; }
 }
+
